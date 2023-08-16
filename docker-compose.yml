@@ -8,11 +8,8 @@ services:
        - 8833:3306
     volumes:
       - ./database/db1:/var/lib/mysql
-    environment:
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+    env_file:
+      .env
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     container_name: admindb1
